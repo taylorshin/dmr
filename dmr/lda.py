@@ -10,6 +10,7 @@ import random
 import sys
 from collections import defaultdict
 from logging import getLogger
+from tqdm import tqdm
 
 class LDA:
     '''
@@ -74,7 +75,7 @@ class LDA:
         '''
         Re-assignment of topics to words
         '''
-        for m, doc in enumerate(self.docs):
+        for m, doc in enumerate(tqdm(self.docs)):
             z_n = self.z_m_n[m]
             n_m_z = self.n_m_z[m]
             for n, t in enumerate(doc):
@@ -141,7 +142,7 @@ class LDA:
         thetas = self.topicdist()
         log_per = 0
         N = 0
-        for m, doc in enumerate(self.docs):
+        for m, doc in enumerate(tqdm(self.docs)):
             theta = thetas[m]
             for w in doc:
                 log_per -= np.log(np.inner(phi[:,w], theta))
