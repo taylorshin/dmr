@@ -156,6 +156,7 @@ class LDA:
         perp = self.perplexity()
         self.log(self.logger.info, "PERP0", [perp])
         for i in range(iteration):
+            print('Iteration', i)
             self.hyperparameter_learning()
             self.inference()
             if (i + 1) % self.SAMPLING_RATE == 0:
