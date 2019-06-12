@@ -163,6 +163,18 @@ class LDA:
                 self.log(self.logger.info, "PERP%s" % (i+1), [perp])
         self.output_word_dist_with_voca(voca)
 
+    def verify_learning(self, iteration, voca):
+        """
+        Verify that LDA is learning properly
+        """
+        perps = []
+        for i in range(iteration):
+            self.hyperparameter_learning()
+            self.inference()
+            perp = self.perplexity()
+            perps.append(perp)
+        return perps
+
     def hyperparameter_learning(self):
         '''
         No hyperparameter learning in LDA
