@@ -1,5 +1,5 @@
 # DMR
-Topic Models with Dirichlet-multinomial Regression (DMR)
+Topic Modeling with Dirichlet-multinomial Regression (DMR)
 
 The algorithm of DMR was introduced in:
 
